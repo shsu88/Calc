@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Calc</string>
+    <string name="greetings">Hello, Baba!</string>
+    <string name="hiBeck">Hello, Rebecca!</string>
+</resources>
