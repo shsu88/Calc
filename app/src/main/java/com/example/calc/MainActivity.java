@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import javax.xml.transform.Result;
+
 public class MainActivity extends AppCompatActivity {
 
     static final String TAG = "Calc";
     private Model model = new Model();
-    private TextView resText;
+    private ResultTextView resText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         resText = findViewById(R.id.result);
-        resText.setText(model.getResult());
+        resText.setModel(model);
+        resText.update();
 
         NumButton[] numButton = new NumButton[10];
         int[] ids = new int[] {
