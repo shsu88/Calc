@@ -10,13 +10,12 @@ public class NumButton {
     private int index;
     private Model model;
 
-    public NumButton(Button raw, int num, Model m, ResultTextView resText) {
+    public NumButton(Button raw, int num, Model m) {
         b = raw;
         index = num;
         model = m;
         b.setOnClickListener(v -> {
             model.addDigit(index);
-            resText.update();
         });
     }
 }
