@@ -116,14 +116,16 @@
         android:layout_margin="8dp"
         app:layout_constraintLeft_toRightOf="@id/decButton"
         app:layout_constraintTop_toBottomOf="@id/num1"/>
+
     <Button
         android:id="@+id/addButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:text="+"
         android:layout_margin="8dp"
+        android:rotationX="0"
+        android:text="+"
         app:layout_constraintLeft_toRightOf="@id/num3"
-        app:layout_constraintTop_toBottomOf="@id/minusButton"/>
+        app:layout_constraintTop_toBottomOf="@id/minusButton" />
     <Button
         android:id="@+id/minusButton"
         android:layout_width="60dp"

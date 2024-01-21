@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import javax.xml.transform.Result;
@@ -54,6 +55,23 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             numButton[i] = new NumButton(findViewById(ids[i]), i, model);
         }
+
+        notNumButton[] NotNumButton = new notNumButton[5];
+        int[] ops = new int[] {
+                R.id.addButton,
+                R.id.minusButton,
+                R.id.multButton,
+                R.id.divButton,
+                R.id.equalsButton
+        };
+        for (int i = 0; i < 5; i++) {
+            Button b = findViewById(ops[i]);
+            NotNumButton[i] = new notNumButton(b, b.getText().toString(), model);
+        }
+
+        findViewById(R.id.clearButton).setOnClickListener(v -> {
+            model.clearAll();
+        });
 
     }
 }
