@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 R.id.num9
         };
         for (int i = 0; i < 10; i++) {
-            numButton[i] = new NumButton(findViewById(ids[i]), i, model);
+            numButton[i] = new NumButton(findViewById(ids[i]), String.valueOf(i), model);
         }
 
         notNumButton[] NotNumButton = new notNumButton[5];
@@ -73,5 +73,8 @@ public class MainActivity extends AppCompatActivity {
             model.clearAll();
         });
 
+        findViewById(R.id.decButton).setOnClickListener(v -> {
+            model.addDec();
+        });
     }
 }

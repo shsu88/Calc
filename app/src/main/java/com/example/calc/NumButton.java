@@ -7,10 +7,10 @@ import javax.xml.transform.Result;
 
 public class NumButton {
     private Button b;
-    private int index;
+    private String index;
     private Model model;
 
-    public NumButton(Button raw, int num, Model m) {
+    public NumButton(Button raw, String num, Model m) {
         b = raw;
         index = num;
         model = m;
