@@ -5,51 +5,27 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.viewmodel.ViewModelInitializer;
 
 public class Model extends ViewModel {
-    private String res = "0";
-    private String saveOp = "+";
-    private String saveRes = "0";
     private MutableLiveData<String> currentResult;
+    private Compute c = new Compute();
 
 
     public void addDigit(String d) {
-        if (res.equals("0")) {
-            res = "";
-        }
-        res += d;
+        c.addDigit(d);
         getResult();
     }
 
     public void calculate(String op) {
-        double dres = Double.parseDouble(res);
-        double dsave = Double.parseDouble(saveRes);
-
-        if (saveOp.equals("+")) {
-            dsave += dres;
-        } else if (saveOp.equals("-")) {
-            dsave -= dres;
-        } else if (saveOp.equals("×")) {
-            dsave *= dres;
-        } else if (saveOp.equals("÷")) {
-            dsave /= dres;
-        } else if (saveOp.equals("=")) {
-            dsave = dres;
-        }
-        saveRes = String.valueOf(dsave);
-        res = saveRes;
-        saveOp = op;
+        c.calculate(op);
         getResult();
-        res = "";
     }
 
     public void clearAll() {
-        saveRes = "";
-        saveOp = "+";
-        res = "";
+        c.clearAll();
         getResult();
     }
 
     public void addDec() {
-        res += ".";
+        c.addDec();
         getResult();
     }
 
@@ -57,7 +33,7 @@ public class Model extends ViewModel {
         if (currentResult == null) {
             currentResult = new MutableLiveData<String>("0");
         } else {
-            currentResult.setValue(res);
+            currentResult.setValue(c.getResult());
         }
         return currentResult;
     }
